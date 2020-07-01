@@ -1,0 +1,14 @@
+{
+  "name": "blog-compiler",
+  "version": "1.0.0",
+  "description": "Compiles json blog posts (that have markdown content) into pre-determined html",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mikolaj Figurski",
+  "license": "ISC",
+  "dependencies": {
+    "webpack": "^4.43.0"
+  }
+}
