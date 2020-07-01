@@ -1,0 +1,11 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: #029793;
+    color: #7FC7BB  ;
+    font-family: 'Fira Mono', monospace;
+    font-weight: 400;
+}
