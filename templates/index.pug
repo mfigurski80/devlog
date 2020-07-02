@@ -10,7 +10,7 @@ html
             header
                 h6 MIKO FIGURSKI
                 a(href='http://meeksfigs.surge.sh')
-                    h6 DEVBLOG
+                    h6 DEVLOG
 
             - var files = fs.readdirSync('./posts').sort((a, b) => fs.statSync('./posts/' + a).birthtime.getTime() > fs.statSync('./posts/' + b).birthtime.getTime())
             - var re = /<h1.*>(.*)<\/h1>/
