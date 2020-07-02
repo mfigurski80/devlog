@@ -1,8 +1,20 @@
 doctype html
 html
+    head
+        style
+            include ./index.css
     body
-        h2 MIKO FIGURSKI
-        h2 DEVLOG
-            //- = fs
-        each file in fs.readdirSync('./posts')
-            != markdown(fs.readFileSync('./posts/' + file, 'utf8'))
+        div.container
+            header
+                h6 MIKO FIGURSKI
+                a(href='http://meeksfigs.surge.sh')
+                    h6 DEVBLOG
+
+            - var files = fs.readdirSync('./posts').sort((a, b) => fs.statSync('./posts/' + a).birthtime.getTime() > fs.statSync('./posts/' + b).birthtime.getTime())
+            each file in files
+                - var md = markdown(fs.readFileSync('./posts/' + file, 'utf8')).split('\n')
+                - var title = file.split('.md')[0]
+                article(id=title)
+                    a(href='#' + title)
+                        h1.title=title.split('-').join(' ') + ' - ' + fs.statSync('./posts/' + file).birthtime.toDateString()
+                    != md.slice(1).join('\n')

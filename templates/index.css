@@ -5,7 +5,77 @@
 }
 body {
     background: #029793;
-    color: #7FC7BB  ;
+    color: #9CD3CA  ;
     font-family: 'Fira Mono', monospace;
     font-weight: 400;
+}
+::selection {
+    background: #FFCF56;
+    color: #303633;
+}
+
+/* LAYOUTS */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 60px 0;
+}
+header {
+    margin: 40px 0;
+}
+
+/* TEXT RESET */
+h1, h2, h3, h4, h5, h6, p {
+    font-size: 16px;
+    margin: 10px 0;
+    line-height: 20px;
+}
+a {
+    display: inline-block;
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    cursor: pointer;
+} a > * {
+    padding: 0;
+    margin: 0;
+} a:hover {
+    text-decoration: none;
+}
+
+h1:before {
+    content: "#";
+    position: absolute;
+    margin-left: -15px;
+}
+h2:before {
+    content: "##";
+    position: absolute;
+    margin-left: -25px;
+}
+
+/* OTHER MARKDOWN ELEMENT RESET */
+code {
+    font-family: monospace;
+    font-size: 13px;
+    background: #303633;
+    color: #EDEAD0;
+    padding: 3px 6px;
+    margin: 0px -5px;
+}
+pre > code {
+    display: block;
+    padding: 15px;
+    margin: 10px 0;
+}
+
+/* ARTICLE STYLING */
+
+
+article {
+    padding: 20px 0;
+    margin: 5px 0;
+}
+article .title {
+    text-transform: capitalize;
 }
