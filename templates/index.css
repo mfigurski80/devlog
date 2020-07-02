@@ -1,11 +1,13 @@
+/* https://coolors.co/303633-028d88-9cd3ca-b9dfd9-ffcf56 */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 body {
-    background: #029793;
-    color: #9CD3CA  ;
+    background: #028D88;
+    color: #9CD3CA;
     font-family: 'Fira Mono', monospace;
     font-weight: 400;
 }
@@ -30,11 +32,15 @@ h1, h2, h3, h4, h5, h6, p {
     margin: 10px 0;
     line-height: 20px;
 }
+h1, h2, h3, h4, h5, h6 {
+    color: #B9DFD9;
+}
 a {
     display: inline-block;
     color: inherit;
     text-decoration: underline;
     text-decoration-thickness: 2px;
+    font-weight: bold;
     cursor: pointer;
 } a > * {
     padding: 0;
@@ -59,9 +65,13 @@ code {
     font-family: monospace;
     font-size: 13px;
     background: #303633;
-    color: #EDEAD0;
-    padding: 3px 6px;
+    color: #B9DFD9;
+    padding: 2px 6px;
     margin: 0px -5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+} code:hover {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 pre > code {
     display: block;
@@ -72,6 +82,18 @@ blockquote {
     border-left: 3px solid #FFCF56;
     background: #FFF1;
     padding: 3px 10px;
+}
+table {
+    margin: 15px 0;
+    width: 100%;
+    border-collapse: collapse;
+} td {
+    padding: 4px 13px;
+} tbody tr:nth-child(2n) {
+    background: #FFF1;
+} th {
+    background: #FFF1;
+    padding: 10px 0;
 }
 
 /* ARTICLE STYLING */

@@ -1,7 +1,7 @@
 doctype html
 html
     head
-        meta(name='theme-color', content='#029793')
+        meta(name='theme-color', content='#303633')
         style
             include ./highlight.css
             include ./index.css
@@ -13,10 +13,12 @@ html
                     h6 DEVBLOG
 
             - var files = fs.readdirSync('./posts').sort((a, b) => fs.statSync('./posts/' + a).birthtime.getTime() > fs.statSync('./posts/' + b).birthtime.getTime())
+            - var re = /<h1.*>(.*)<\/h1>/
             each file in files
                 - var md = markdown(fs.readFileSync('./posts/' + file, 'utf8')).split('\n')
-                - var title = file.split('.md')[0]
+                - var match = re.exec(md[0])
+                - var title = match ? match[1] : file.split('-').join(' ')
                 article(id=title)
                     a(href='#' + title)
-                        h1.title=title.split('-').join(' ') + ' - ' + fs.statSync('./posts/' + file).birthtime.toDateString()
+                        h1.title=title + ' - ' + fs.statSync('./posts/' + file).birthtime.toDateString()
                     != md.slice(1).join('\n')

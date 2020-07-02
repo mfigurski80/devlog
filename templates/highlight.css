@@ -3,12 +3,12 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 https://github.com/highlightjs/highlight.js/blob/master/src/styles/dark.css
 */
 
-.hljs {
+/* .hljs {
     display: block;
     overflow-x: auto;
     padding: 0.5em;
     background: #444;
-  }
+  } */
   
   .hljs-keyword,
   .hljs-selector-tag,
