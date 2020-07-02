@@ -18,7 +18,7 @@ body {
 .container {
     max-width: 600px;
     margin: 0 auto;
-    padding: 60px 0;
+    padding: 60px 10px;
 }
 header {
     margin: 40px 0;
@@ -67,6 +67,11 @@ pre > code {
     display: block;
     padding: 15px;
     margin: 10px 0;
+}
+blockquote {
+    border-left: 3px solid #FFCF56;
+    background: #FFF1;
+    padding: 3px 10px;
 }
 
 /* ARTICLE STYLING */
