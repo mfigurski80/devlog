@@ -1,5 +1,16 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const fs = require('fs')
+const marked = require('marked');
+
+// configure marked
+marked.setOptions({
+    highlight: (code, language) => {
+        const hljs = require('highlight.js');
+        const validLanguage = hljs.getLanguage(language) ? language : 'plaintext';
+        return hljs.highlight(validLanguage, code).value;
+    }
+})
 
 module.exports = {
     entry: './src/main.js',
@@ -8,7 +19,7 @@ module.exports = {
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: './templates/index.pug',
-            templateParameters: { fs: require('fs'), markdown: require('marked') }
+            templateParameters: { fs: fs, markdown: marked }
         }),
     ],
     module: {
