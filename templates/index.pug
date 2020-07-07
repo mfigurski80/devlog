@@ -12,7 +12,7 @@ html(lang="en")
         .container
             include elements/header.pug
 
-            - var files = fs.readdirSync('./posts').sort((a, b) => fs.statSync('./posts/' + a).birthtime.getTime() > fs.statSync('./posts/' + b).birthtime.getTime())
+            - var files = fs.readdirSync('./posts').sort((a, b) => fs.statSync('./posts/' + b).birthtimeMs - fs.statSync('./posts/' + a).birthtimeMs)
             - var re = /<h1.*>(.*)<\/h1>/
             each file in files
                 - var md = markdown(fs.readFileSync('./posts/' + file, 'utf8')).split('\n')
