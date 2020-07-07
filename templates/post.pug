@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(name='theme-color', content='#303633')
+        style
+            include ./highlight.css
+            include ./index.css
+        title DevLog
+    body
+        .container
+            header
+                h6 MIKO FIGURSKI
+                a(href='http://meeksfigs.surge.sh')
+                    h6 DEVLOG
+            
+            - var re = /<h1.*>(.*)<\/h1>/
+            - var md = markdown(fs.readFileSync('./posts/' + filename, 'utf8')).split('\n')
+            - var match = re.exec(md[0])
+            - var title = match ? match[1] : file.split('-').join(' ')
+            article(id=title)
+                    a(href='#' + title)
+                        h1.title=title + ' - ' + fs.statSync('./posts/' + filename).birthtime.toDateString()
+                    != md.slice(1).join('\n')
+
+
