@@ -17,8 +17,7 @@ html(lang="en")
             - var match = re.exec(md[0])
             - var title = match ? match[1] : file.split('-').join(' ')
             article(id=title)
-                    a(href='#' + title)
-                        h1.title=title + ' - ' + fs.statSync('./posts/' + filename).birthtime.toDateString()
-                    != md.slice(1).join('\n')
+                h1.title=title + ' - ' + fs.statSync('./posts/' + filename).birthtime.toDateString()
+                != md.slice(1).join('\n')
 
 
