@@ -11,6 +11,16 @@ marked.setOptions({
         return hljs.highlight(validLanguage, code).value;
     }
 })
+// compile html for each post
+post_compilers = fs.readdirSync('./posts')
+    .map(f => {
+        return new HtmlWebpackPlugin({
+            filename: f.split('.md')[0] + '.html',
+            template: './templates/post.pug',
+            templateParameters: { fs: fs, markdown: marked, filename: f }
+        })
+    })
+
 
 module.exports = {
     entry: './src/main.js',
@@ -18,10 +28,11 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
+            filename: 'index.html',
             template: './templates/index.pug',
             templateParameters: { fs: fs, markdown: marked }
         }),
-    ],
+    ].concat(...post_compilers), // combine pre-defined compilers for each post
     module: {
         rules: [
             {
