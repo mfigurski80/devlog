@@ -10,10 +10,7 @@ html(lang="en")
         title DevLog
     body
         .container
-            header
-                h6 MIKO FIGURSKI
-                a(href='http://meeksfigs.surge.sh')
-                    h6 DEVLOG
+            include elements/header.pug
             
             - var re = /<h1.*>(.*)<\/h1>/
             - var md = markdown(fs.readFileSync('./posts/' + filename, 'utf8')).split('\n')

@@ -11,7 +11,7 @@ marked.setOptions({
         return hljs.highlight(validLanguage, code).value;
     }
 })
-
+// compile html for each post
 post_compilers = fs.readdirSync('./posts')
     .map(f => {
         return new HtmlWebpackPlugin({
@@ -20,6 +20,7 @@ post_compilers = fs.readdirSync('./posts')
             templateParameters: { fs: fs, markdown: marked, filename: f }
         })
     })
+
 
 module.exports = {
     entry: './src/main.js',
