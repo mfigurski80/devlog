@@ -25,12 +25,15 @@ body {
 header {
     margin: 40px 0;
 }
+header a {
+    text-decoration: none;
+}
 
 /* TEXT RESET */
 h1, h2, h3, h4, h5, h6, p {
-    font-size: 17px;
+    font-size: 16px;
     margin: 10px 0;
-    line-height: 21px;
+    line-height: 23px;
 }
 h1, h2, h3, h4, h5, h6 {
     color: #C7E5E1;
@@ -47,6 +50,7 @@ a {
     padding: 0;
     margin: 0;
 } a:hover {
+    color: #9CD3CA;
     text-decoration: none;
 }
 
@@ -63,6 +67,7 @@ h2:before {
 
 /* OTHER MARKDOWN ELEMENT RESET */
 code {
+    border-radius: 3px;
     font-family: monospace;
     font-size: 14px;
     background: #303633;

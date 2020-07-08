@@ -18,7 +18,8 @@ html(lang="en")
                 - var md = markdown(fs.readFileSync('./posts/' + file, 'utf8')).split('\n')
                 - var match = re.exec(md[0])
                 - var title = match ? match[1] : file.split('-').join(' ')
+                - var date = fs.statSync('./posts/' + file).birthtime.toDateString().split(' ').slice(1, 4).join(' ')
                 article(id=title)
-                    a(href='/' + file.split('.md')[0] + '.html')
-                        h1.title=title + ' - ' + fs.statSync('./posts/' + file).birthtime.toDateString()
+                    h1.title
+                        a(href='/' + file.split('.md')[0] + '.html')=date + ' : ' + title
                     != md.slice(1).join('\n')
