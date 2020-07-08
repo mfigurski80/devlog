@@ -108,11 +108,25 @@ table {
 
 /* ARTICLE STYLING */
 
-
 article {
     padding: 20px 0;
     margin: 5px 0;
 }
 article .title {
     text-transform: capitalize;
+}
+
+/* ICONS STYLING */
+
+.icons {
+    padding: 0 20px;
+    float: right;
+}
+.svg-icon {
+    margin: 0 10px;
+    width: 15px;
+    fill: #C7E5E1;
+}
+a:hover .svg-icon {
+    fill: #9CD3CA;
 }
