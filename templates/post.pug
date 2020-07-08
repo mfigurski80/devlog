@@ -19,5 +19,3 @@ html(lang="en")
             article(id=title)
                 h1.title=title + ' - ' + fs.statSync('./posts/' + filename).birthtime.toDateString()
                 != md.slice(1).join('\n')
-
-
