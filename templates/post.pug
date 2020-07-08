@@ -22,3 +22,5 @@ html(lang="en")
             article(id=title)
                 h1.title=date + ' : ' + title
                 != md.slice(1).join('\n')
+
+            include elements/footer.pug
