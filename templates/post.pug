@@ -1,3 +1,10 @@
+- var re = /<h1.*>(.*)<\/h1>/
+- var md = markdown(fs.readFileSync('./posts/' + filename, 'utf8')).split('\n')
+- var match = re.exec(md[0])
+- var title = match ? match[1] : file.split('-').join(' ')
+- var date = fs.statSync('./posts/' + filename).birthtime.toDateString().split(' ').slice(1, 4).join(' ')
+
+
 <!DOCTYPE html>
 html(lang="en")
     head
@@ -7,18 +14,13 @@ html(lang="en")
         style
             include ./highlight.css
             include ./index.css
-        title DevLog
+        title=title + ' | DevLog'
     body
         .container
             include elements/header.pug
             
-            - var re = /<h1.*>(.*)<\/h1>/
-            - var md = markdown(fs.readFileSync('./posts/' + filename, 'utf8')).split('\n')
-            - var match = re.exec(md[0])
-            - var title = match ? match[1] : file.split('-').join(' ')
             article(id=title)
-                    a(href='#' + title)
-                        h1.title=title + ' - ' + fs.statSync('./posts/' + filename).birthtime.toDateString()
-                    != md.slice(1).join('\n')
+                h1.title=date + ' : ' + title
+                != md.slice(1).join('\n')
 
-
+            include elements/footer.pug
