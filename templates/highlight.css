@@ -23,7 +23,10 @@ https://github.com/highlightjs/highlight.js/blob/master/src/styles/dark.css
     color: #ddd;
   }
   
-  .hljs-string,
+  .hljs-string {
+    color: #ABDA95;
+  }
+  
   .hljs-title,
   .hljs-name,
   .hljs-type,
