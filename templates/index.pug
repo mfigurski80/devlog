@@ -18,7 +18,7 @@ html(lang="en")
                 // limit file read to 100 words
                 - var f = fs.readFileSync('./posts/' + file, 'utf8')
                 - var link = '/' + file.split('.md')[0] + '.html'
-                - var truncuation = f.split(' ').length > 100 ? ' ...' : ''
+                - var truncuation = f.split(' ').length > 100 ? '...' : ''
                 - var md = markdown(f.split(' ').slice(0,100).join(' ') + truncuation).split('\n')
                 - var match = re.exec(md[0])
                 - var title = match ? match[1] : file.split('-').join(' ')
