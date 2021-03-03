@@ -33,6 +33,7 @@ header {
 }
 header a {
     text-decoration: none;
+    font-weight: bold;
 }
 footer {
     padding: 40px 0;
@@ -44,6 +45,7 @@ h1, h2, h3, h4, h5, h6, p {
     font-size: 16px;
     margin: 10px 0;
     line-height: 21px;
+    font-weight: normal;
 }
 h1, h2, h3, h4, h5, h6 {
     color: var(--color-alt);
@@ -52,7 +54,7 @@ a {
     display: inline-block;
     color: inherit;
     font-size: inherit;
-    font-weight: bold;
+    /* font-weight: bold; */
     text-decoration: underline;
     text-decoration-thickness: 2px;
     cursor: pointer;
@@ -66,22 +68,17 @@ a {
 
 h1:before {
     content: "#";
+    font-weight: bold;
     position: absolute;
     margin-left: -15px;
 }
 h2:before {
     content: "##";
+    font-weight: bold;
     position: absolute;
     margin-left: -25px;
 }
-@media only screen and (max-width: 650px) {
-    h1 {
-        margin-left: 15px;
-    }
-    h2 {
-        margin-left: 25px;
-    }
-}
+
 
 /* OTHER MARKDOWN ELEMENT RESET */
 code {
@@ -104,9 +101,9 @@ pre > code {
     margin: 10px 0;
 }
 blockquote {
-    border-left: 3px solid var(--alt);
-    background: var(--shade);
+    border-left: 2px solid var(--alt);
     padding: 3px 10px;
+    margin-left: -12px;
 }
 table {
     margin: 15px 0;
@@ -148,4 +145,21 @@ article .expand {
 }
 a:hover .svg-icon {
     fill: var(--color-alt);
+}
+
+/* SMAL SCREEN */
+
+@media only screen and (max-width: 670px) {
+    h1 {
+        margin-left: 15px;
+    }
+    h2 {
+        margin-left: 25px;
+    }
+    blockquote {
+        margin-left: 0;
+    }
+    ul {
+        margin-left: 15px;
+    }
 }
