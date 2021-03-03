@@ -6,14 +6,20 @@
     box-sizing: border-box;
 }
 body {
-    background: #017773;
-    color: #B9DFD9;
+    --background: #1C575F;
+    --background-dark: #2B2F3B;
+    --color:  #DDDEE4;
+    --color-alt: #F4F4F6;
+    --alt: #FFD770;
+    --shade: #FFF2;
+    background: var(--background);
+    color: var(--color);
     font-family: 'Fira Mono', monospace;
     font-weight: 400;
 }
 ::selection {
-    background: #FFCF56;
-    color: #303633;
+    background: var(--alt);
+    color: var(--background-dark);
 }
 
 /* LAYOUTS */
@@ -40,7 +46,7 @@ h1, h2, h3, h4, h5, h6, p {
     line-height: 21px;
 }
 h1, h2, h3, h4, h5, h6 {
-    color: #C7E5E1;
+    color: var(--color-alt);
 }
 a {
     display: inline-block;
@@ -54,7 +60,7 @@ a {
     padding: 0;
     margin: 0;
 } a:hover {
-    color: #9CD3CA;
+    color: var(--color-alt);
     text-decoration: none;
 }
 
@@ -74,8 +80,8 @@ code {
     border-radius: 3px;
     font-family: monospace;
     font-size: 14px;
-    background: #303633;
-    color: #EEE;
+    background: var(--background-dark);
+    color: var(--color-alt);
     padding: 2px 6px;
     margin: 0px -5px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -89,8 +95,8 @@ pre > code {
     margin: 10px 0;
 }
 blockquote {
-    border-left: 3px solid #FFCF56;
-    background: #FFF1;
+    border-left: 3px solid var(--alt);
+    background: var(--shade);
     padding: 3px 10px;
 }
 table {
@@ -100,9 +106,9 @@ table {
 } td {
     padding: 4px 13px;
 } tbody tr:nth-child(2n) {
-    background: #FFF1;
+    background: var(--shade);
 } th {
-    background: #FFF1;
+    background: var(--shade);
     padding: 10px 0;
 }
 
@@ -125,8 +131,8 @@ article .title {
 .svg-icon {
     margin: 0 10px;
     width: 15px;
-    fill: #C7E5E1;
+    fill: var(--color);
 }
 a:hover .svg-icon {
-    fill: #9CD3CA;
+    fill: var(--color-alt);
 }
