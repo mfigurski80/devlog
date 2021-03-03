@@ -24,9 +24,9 @@ body {
 
 /* LAYOUTS */
 .container {
-    max-width: 600px;
+    max-width: 650px;
     margin: 0 auto;
-    padding: 60px 10px;
+    padding: 60px 15px;
 }
 header {
     margin: 40px 0;
@@ -74,6 +74,14 @@ h2:before {
     position: absolute;
     margin-left: -25px;
 }
+@media only screen and (max-width: 650px) {
+    h1 {
+        margin-left: 15px;
+    }
+    h2 {
+        margin-left: 25px;
+    }
+}
 
 /* OTHER MARKDOWN ELEMENT RESET */
 code {
@@ -120,6 +128,10 @@ article {
 }
 article .title {
     text-transform: capitalize;
+}
+
+article .expand {
+    display: inline;
 }
 
 /* ICONS STYLING */
