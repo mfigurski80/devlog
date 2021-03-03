@@ -56,7 +56,7 @@ a {
     font-size: inherit;
     /* font-weight: bold; */
     text-decoration: underline;
-    text-decoration-thickness: 2px;
+    text-decoration-thickness: 1px;
     cursor: pointer;
 } a > * {
     padding: 0;
@@ -125,7 +125,8 @@ article {
     margin: 5px 0;
 }
 article .title {
-    text-transform: capitalize;
+    text-transform: uppercase;
+    padding: 4px 0;
 }
 
 article .expand {
