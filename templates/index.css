@@ -104,15 +104,23 @@ pre > code {
     margin: 10px 0;
 }
 pre > code::before {
-	content: "";
+	content: "📋";
+	color: #0000;
 	position: absolute;
-	right: 15px;
-	width: 18px;
-	height: 18px;
-	display: block;
+	z-index: 10;
+	right: 0;
+	top: 0;
+	width: 47px;
+	height: 47px;
+	display: inline-block;
+	/* background-color: red; */
 	background-image: url("templates/icons/copy.svg");
-	background-size: 18px 18px;
+	background-size: 17px 17px;
+	background-position: 15px 15px;
+	background-repeat: no-repeat;
 	cursor: pointer;
+	filter: brightness(70%);
+	transition: filter .2s;
 }
 
 blockquote {
