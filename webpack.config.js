@@ -7,6 +7,8 @@ const marked = require('marked');
 marked.setOptions({
     highlight: (code, language) => {
         const hljs = require('highlight.js');
+        const hljsDefineSolidity = require('highlightjs-solidity');
+        hljsDefineSolidity(hljs);
         const validLanguage = hljs.getLanguage(language) ? language : 'plaintext';
         return hljs.highlight(validLanguage, code).value;
     }
