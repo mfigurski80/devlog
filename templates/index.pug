@@ -12,7 +12,7 @@ html(lang="en")
         .container
             include elements/header.pug
 
-            - var files = fs.readdirSync('./posts').sort((a, b) => fs.statSync('./posts/' + b).birthtimeMs - fs.statSync('./posts/' + a).birthtimeMs)
+            - var files = fs.readdirSync('./posts').filter(f => f.endsWith('.md')).sort((a, b) => fs.statSync('./posts/' + b).birthtimeMs - fs.statSync('./posts/' + a).birthtimeMs)
             - var re = /<h1.*>(.*)<\/h1>/
             each file in files
                 // limit file read to 100 words

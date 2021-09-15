@@ -13,13 +13,12 @@ marked.setOptions({
 })
 // compile html for each post
 post_compilers = fs.readdirSync('./posts')
-    .map(f => {
-        return new HtmlWebpackPlugin({
+	.filter(f => f.endsWith('.md'))
+    .map(f => new HtmlWebpackPlugin({
             filename: f.split('.md')[0] + '.html',
             template: './templates/post.pug',
             templateParameters: { fs: fs, markdown: marked, filename: f }
-        })
-    })
+    }))
 
 
 module.exports = {

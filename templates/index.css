@@ -103,25 +103,6 @@ pre > code {
     padding: 15px;
     margin: 10px 0;
 }
-pre > code::before {
-	content: "📋";
-	color: #0000;
-	position: absolute;
-	z-index: 10;
-	right: 0;
-	top: 0;
-	width: 47px;
-	height: 47px;
-	display: inline-block;
-	/* background-color: red; */
-	background-image: url("templates/icons/copy.svg");
-	background-size: 17px 17px;
-	background-position: 15px 15px;
-	background-repeat: no-repeat;
-	cursor: pointer;
-	filter: brightness(70%);
-	transition: filter .2s;
-}
 
 blockquote {
     border-left: 2px solid var(--alt);
