@@ -99,9 +99,13 @@ code {
 
 pre > code {
     display: block;
-	position: relative;
+    position: relative;
     padding: 15px;
     margin: 10px 0;
+}
+
+hr {
+    color: var(--color-alt);
 }
 
 blockquote {
