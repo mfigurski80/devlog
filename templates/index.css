@@ -6,8 +6,9 @@
     box-sizing: border-box;
 }
 body {
-    --background: #1C575F;
-    --background-dark: #0E2B2F;
+    --background: #0E2B2F;
+    --background-alt: #1A3B4F;
+    /* --background-alt: #1C4738; */
     --color:  #DDDEE4;
     --color-alt: #F4F4F6;
     --alt: #FFD770;
@@ -19,17 +20,18 @@ body {
 }
 ::selection {
     background: var(--alt);
-    color: var(--background-dark);
+    color: var(--background);
 }
 
 /* LAYOUTS */
 .container {
     max-width: 650px;
-    margin: 0 auto;
-    padding: 60px 15px;
+    margin: 50px auto;
+    padding: 20px 15px;
+
 }
 header {
-    margin: 40px 0;
+    margin: 30px 0;
 }
 header a {
     text-decoration: none;
@@ -62,7 +64,7 @@ a {
     padding: 0;
     margin: 0;
 } a:hover {
-    color: var(--color-alt);
+    color: var(--alt);
     text-decoration: none;
 }
 
@@ -149,11 +151,19 @@ article .expand {
 }
 .svg-icon {
     margin: 0 10px;
-    width: 15px;
+    padding: 2px;
+    width: 20px;
     fill: var(--color);
+    border-radius: 3px;
+    outline: solid var(--color) 0px;
+    transition: .1s outline;
+}
+.svg-icon#github {
+  border-radius: 50%;
 }
 a:hover .svg-icon {
-    fill: var(--color-alt);
+    fill: var(--alt);
+    outline: solid var(--alt) 2px;
 }
 
 /* SMOL SCREEN */
