@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const PugPlugin = require('pug-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const fs = require('fs')
 const marked = require('marked');
@@ -38,7 +39,7 @@ module.exports = {
         rules: [
             {
                 test: /\.pug$/,
-                use: 'pug-loader'
+                use: PugPlugin.loader,
             },
         ]
     }
