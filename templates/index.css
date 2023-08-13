@@ -58,16 +58,21 @@ a {
     display: inline-block;
     color: inherit;
     font-size: inherit;
-    /* font-weight: bold; */
     text-decoration: underline;
     text-decoration-thickness: 1px;
+    outline solid transparent 0px;
+    transition: .1s outline;
     cursor: pointer;
 } a > * {
     padding: 0;
     margin: 0;
-} a:hover {
-    color: var(--alt);
+} a:not(.escape-link):hover {
+    background: var(--alt);
+    color: var(--background);
+    outline: solid var(--alt) 2px;
     text-decoration: none;
+} a:not(.escape-link):active {
+    outline: solid var(--alt) 1px;
 }
 
 h1:before {
@@ -167,6 +172,8 @@ article .expand {
 a:hover .svg-icon {
     fill: var(--alt);
     outline: solid var(--alt) 2px;
+} a:active .svg-icon {
+    outline: solid var(--alt) 1px;
 }
 
 /* CODE COPY BUTTON (FROM JS) */
