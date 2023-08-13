@@ -1,6 +1,8 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const PugPlugin = require('pug-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
 const fs = require('fs')
 const marked = require('marked');
 
@@ -29,6 +31,11 @@ module.exports = {
     mode: 'development',
     plugins: [
         new CleanWebpackPlugin(),
+        new CopyWebpackPlugin({
+          patterns: [
+            { from: 'assets', to: 'assets' },
+          ],
+        }),
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: './templates/index.pug',

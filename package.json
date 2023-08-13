@@ -13,6 +13,7 @@
   "license": "ISC",
   "devDependencies": {
     "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^11.0.0",
     "highlight.js": "^10.4.1",
     "highlightjs-solidity": "^2.0.0",
     "html-webpack-plugin": "^5.1.0",
