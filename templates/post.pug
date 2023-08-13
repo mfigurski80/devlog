@@ -13,7 +13,7 @@ html(lang="en")
     body
         .container
             include elements/header.pug
-            
+
             article(id=title)
                 h1.title='[' + date + '] ' + title
                 != md.slice(1).join('\n')
