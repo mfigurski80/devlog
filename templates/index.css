@@ -7,10 +7,11 @@
 }
 body {
     --background: #0E2B2F;
-    --background-alt: #1A3B4F;
-    /* --background-alt: #1C4738; */
+    --background-light: #0E5058;
+    --background-dark: #062023;
+    /* --background-light: #1C4748; */
     --color:  #DDDEE4;
-    --color-alt: #F4F4F6;
+    --color-alt: #F9F9F6;
     --alt: #FFD770;
     --shade: #FFF2;
     background: var(--background);
@@ -50,6 +51,7 @@ h1, h2, h3, h4, h5, h6, p {
     font-weight: normal;
 }
 h1, h2, h3, h4, h5, h6 {
+    margin-top: 25px;
     color: var(--color-alt);
 }
 a {
@@ -71,12 +73,14 @@ a {
 h1:before {
     content: "#";
     font-weight: bold;
+    color: var(--background-light);
     position: absolute;
     margin-left: -15px;
 }
 h2:before {
     content: "##";
     font-weight: bold;
+    color: var(--background-light);
     position: absolute;
     margin-left: -25px;
 }
@@ -97,7 +101,6 @@ code {
 } code:hover {
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
-
 
 pre > code {
     display: block;
@@ -165,6 +168,36 @@ a:hover .svg-icon {
     fill: var(--alt);
     outline: solid var(--alt) 2px;
 }
+
+/* CODE COPY BUTTON (FROM JS) */
+
+code button.code-copy {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 3px;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    opacity: 0;
+    transition: .1s opacity, .1s transform;
+}
+code button.code-copy svg {
+    padding-top: 3px;
+    transform: scale(1, .9);
+    height: 18px;
+    width: 18px;
+}
+code:hover button.code-copy {
+    opacity: .3;
+}
+code button.code-copy:hover {
+    opacity: .8;
+}
+code button.code-copy:active {
+    transform: scale(.9);
+}
+
 
 /* SMOL SCREEN */
 
