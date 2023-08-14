@@ -49,5 +49,9 @@ module.exports = {
                 use: PugPlugin.loader,
             },
         ]
-    }
+    },
+    devServer: {
+        port: 8080,
+        watchFiles: ['src/**/*', 'templates/**/*', 'posts/**/*'],
+    },
 };
