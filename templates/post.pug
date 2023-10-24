@@ -2,8 +2,7 @@
 - var md = markdown(fs.readFileSync('./posts/' + filename, 'utf8')).split('\n')
 - var match = re.exec(md[0])
 - var title = match ? match[1] : file.split('-').join(' ')
-- var date = fs.statSync('./posts/' + filename).birthtime.toDateString().split(' ').slice(1, 4).join(' ')
-
+- var dateString = date.toDateString().split(' ').slice(1, 4).join(' ')
 
 <!DOCTYPE html>
 html(lang="en")
@@ -15,7 +14,7 @@ html(lang="en")
             include elements/header.pug
 
             article(id=title)
-                h1.title='[' + date + '] ' + title
+                h1.title='[' + dateString + '] ' + title
                 != md.slice(1).join('\n')
 
             include elements/footer.pug

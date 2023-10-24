@@ -7,7 +7,7 @@ html(lang="en")
         .container
             include elements/header.pug
 
-            - var files = fs.readdirSync('./posts').filter(f => f.endsWith('.md')).sort((a, b) => fs.statSync('./posts/' + b).birthtimeMs - fs.statSync('./posts/' + a).birthtimeMs)
+            - var files = fs.readdirSync('./posts').filter(f => f.endsWith('.md')).sort((a, b) => getDate(b) - getDate(a))
             - var re = /<h1.*>(.*)<\/h1>/
             each file in files
                 // limit file read to 100 words
@@ -17,7 +17,8 @@ html(lang="en")
                 - var md = markdown(f.split(' ').slice(0,100).join(' ') + truncuation).split('\n')
                 - var match = re.exec(md[0])
                 - var title = match ? match[1] : file.split('-').join(' ')
-                - var date = fs.statSync('./posts/' + file).birthtime.toDateString().split(' ').slice(1, 4).join(' ')
+                - var date = getDate(file).toDateString().split(' ').slice(1, 4).join(' ')
+
                 article(id=title)
                     h1.title
                         a(href=link)=`[${date}] ${title}`
