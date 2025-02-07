@@ -1,0 +1,11 @@
+# Donate Project
+
+I've recently begun working on a project to get me an internship at Linode. Yes, ik it's sorta cheesy to be targeting something so specifically, but it really is a dream position for me for the summer.
+
+As Linode is a company in the business of container managing, cloud providing, computation enabling, and providing of easy linux machines, I thought I'd make a project related to these things by writing a platform for *anyone with docker installed* to donate the compute time of their own device to research or other useful computing work of their choice. The general structure would look like this: author creates a working image, uses the cli to upload it to personal docker repository and publicly list it. Then, a runner would see the public list, download the image, run it until completion, and then upload the container back into the docker repository. And then there's some mechanic for the research to retrieve their data.
+
+One really big assumption here is that docker containers are generally safe to run on your pc, and can't introduce malware. Gonna read up a bit on how best to run foreign images, but this is going to remain a big question (would love to learn more about the security tho). Another thing I'm still thinking about is how exactly data retrieval should happen. Of course, this burden could be put entirely on author (to either make image upload results somewhere or to make returned image ssh-able), but I think there might be a clever solution with mounting docker drive volumes and uploading them too afterwards. Needs more research.
+
+Currently just about finished writing the Donate hub API, which is gonna manage the listings. Golang and mux. Repository can be found [here, on github](https://github.com/mfigurski80/DonateAPI). Last thing I need before deploying for good is probably a better logger with a query timer (those are cool), and some dockerfile and docker-compose changes to enable data volumes. Additionally, have accidentally started using DigitalOcean for hosting... even though they provide the same exact service as Linode. Should I transition? Is this something that would hurt my chances? Or would it spur them to hire me to get me to transition?
+
+Probably gonna transition. But have a month of free credit on DO rn, so gonna wait that out.
