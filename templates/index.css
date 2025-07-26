@@ -242,3 +242,9 @@ code button.code-copy:active {
     margin-left: 15px;
   }
 }
+
+/* VIEW TRANSITIONS */
+
+@view-transition {
+  navigation: auto;
+}
