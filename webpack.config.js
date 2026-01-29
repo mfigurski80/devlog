@@ -1,5 +1,4 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const PugPlugin = require('pug-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
@@ -40,6 +39,9 @@ const post_compilers = fs.readdirSync('./posts')
 module.exports = {
   entry: './src/main.js',
   mode: 'development',
+  output: {
+    path: require('path').resolve(__dirname, 'dist'),
+  },
   plugins: [
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin({
@@ -57,7 +59,7 @@ module.exports = {
     rules: [
       {
         test: /\.pug$/,
-        use: PugPlugin.loader,
+        use: ['pug-loader'],
       },
     ]
   },
