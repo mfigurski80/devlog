@@ -1,10 +1,9 @@
 - var re = /<h1.*>(.*)<\/h1>/
 - var md = markdown(fs.readFileSync('./posts/' + filename, 'utf8')).split('\n')
 - var match = re.exec(md[0])
-- var title = match ? match[1] : file.split('-').join(' ')
-- var dateString = date.toDateString().split(' ').slice(1, 4).join(' ')
+- var title = match ? match[1] : filename.split('-').join(' ')
+- var dateString = getDate(filename).toDateString().split(' ').slice(1, 4).join(' ')
 
-<!DOCTYPE html>
 html(lang="en")
     head
         include head.pug

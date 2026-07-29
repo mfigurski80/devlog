@@ -1,4 +1,3 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const PugPlugin = require('pug-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -26,19 +25,20 @@ marked.setOptions({
   }
 })
 
-// compile html for each post
-const post_compilers = fs.readdirSync('./posts')
+// one pug entry per post, each pointed at the shared post.pug template
+// with its own markdown filename passed through the loader resourceQuery
+const post_entries = fs.readdirSync('./posts')
   .filter(f => f.endsWith('.md'))
-  .map(f => {
-    return new HtmlWebpackPlugin({
-      filename: f.split('.md')[0] + '.html',
-      template: './templates/post.pug',
-      templateParameters: { fs: fs, markdown: marked, filename: f, date: getDate(f) }
-    })
-  });
+  .reduce((entries, f) => {
+    entries[f.split('.md')[0]] = `./templates/post.pug?filename=${f}`;
+    return entries;
+  }, {});
 
 module.exports = {
-  entry: './src/main.js',
+  entry: {
+    index: './templates/index.pug',
+    ...post_entries,
+  },
   mode: 'development',
   plugins: [
     new CleanWebpackPlugin(),
@@ -47,17 +47,16 @@ module.exports = {
         { from: 'assets', to: 'assets' },
       ],
     }),
-    new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: './templates/index.pug',
-      templateParameters: { fs: fs, markdown: marked, getDate }
-    }),
-  ].concat(...post_compilers), // combine pre-defined compilers for each post
+    new PugPlugin(),
+  ],
   module: {
     rules: [
       {
         test: /\.pug$/,
-        use: PugPlugin.loader,
+        loader: PugPlugin.loader,
+        options: {
+          data: { fs, markdown: marked, getDate },
+        },
       },
     ]
   },
